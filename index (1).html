@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ayush Mandhotra · ML and full-stack developer</title>
+<meta name="description" content="Portfolio of Ayush Mandhotra: machine learning interning experience, MERN projects, and cloud skills.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#EEF1F4; --surface:#FFFFFF; --ink:#0F1B2D; --muted:#51607A; --line:#CDD5E0; --accent:#2540E8; --accent-ink:#FFFFFF;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"Instrument Sans","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0B1220;--surface:#131C2E;--ink:#E8EDF6;--muted:#9AA8C2;--line:#27334A;--accent:#7C93FF;--accent-ink:#0B1220}}
+:root[data-theme="dark"]{--bg:#0B1220;--surface:#131C2E;--ink:#E8EDF6;--muted:#9AA8C2;--line:#27334A;--accent:#7C93FF;--accent-ink:#0B1220}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:1.0625rem;line-height:1.6}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.5rem}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0;gap:1rem;flex-wrap:wrap}
+header.top b{font-family:var(--head);font-size:1.15rem}
+nav a{margin-left:1.25rem;text-decoration:none;color:var(--muted);font-weight:500}
+nav a:hover{color:var(--accent)}
+.hero{padding:4rem 0 3rem}
+h1{font-family:var(--head);font-weight:800;font-size:clamp(3.2rem,12vw,8.5rem);line-height:.92;letter-spacing:-.035em;margin:0 0 1.5rem}
+.lede{max-width:40rem;font-size:1.25rem;color:var(--muted);margin:0 0 2rem}
+.cta{display:flex;gap:.75rem;flex-wrap:wrap}
+.btn{display:inline-block;padding:.75rem 1.25rem;border-radius:.4rem;font-weight:600;text-decoration:none;border:2px solid var(--accent)}
+.btn.main{background:var(--accent);color:var(--accent-ink)}
+.btn.alt{color:var(--accent)}
+.pipe{list-style:none;margin:3.5rem 0 0;padding:0;display:grid;grid-template-columns:repeat(6,1fr);border-top:2px solid var(--ink)}
+.pipe li{padding:1rem .75rem 0 0;position:relative;font-size:.95rem;color:var(--muted)}
+.pipe li::before{content:"";position:absolute;top:-8px;left:0;width:14px;height:14px;border-radius:50%;background:var(--accent)}
+.pipe b{display:block;color:var(--ink);font-family:var(--head);font-size:1.1rem;margin-top:.5rem}
+.pipe-note{color:var(--muted);font-size:.9rem;margin:.75rem 0 0}
+section{padding:3.5rem 0;border-top:1px solid var(--line)}
+h2{font-family:var(--head);font-weight:800;font-size:2rem;letter-spacing:-.02em;margin:0 0 2rem}
+.job{display:grid;grid-template-columns:12rem 1fr;gap:1.5rem;padding-bottom:2rem;margin-bottom:2rem;border-bottom:1px dashed var(--line)}
+.job:last-child{border-bottom:0;margin-bottom:0}
+.job time{color:var(--muted);font-weight:500}
+.job h3,.proj h3{font-family:var(--head);font-size:1.35rem;margin:0 0 .25rem}
+.org{color:var(--accent);font-weight:600;margin:0 0 .75rem}
+ul.pts{margin:0;padding-left:1.15rem;max-width:44rem}
+ul.pts li{margin-bottom:.4rem}
+.projs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:.6rem;padding:1.75rem}
+.stack{display:flex;flex-wrap:wrap;gap:.4rem;margin:.75rem 0 1rem;padding:0;list-style:none}
+.stack li{font-size:.85rem;padding:.15rem .6rem;border:1px solid var(--line);border-radius:99px;color:var(--muted)}
+dl.skills{display:grid;grid-template-columns:12rem 1fr;gap:.9rem 1.5rem;margin:0}
+dl.skills dt{font-weight:600}
+dl.skills dd{margin:0;color:var(--muted)}
+.edu{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.edu h3{font-family:var(--head);margin:0 0 .25rem;font-size:1.2rem}
+.edu p{margin:0;color:var(--muted)}
+footer{padding:3rem 0 4rem;border-top:1px solid var(--line);color:var(--muted)}
+footer .big{font-family:var(--head);font-weight:800;font-size:clamp(1.6rem,5vw,2.75rem);color:var(--ink);text-decoration:none;word-break:break-all}
+footer .big:hover{color:var(--accent)}
+@media (max-width:760px){
+  .pipe{grid-template-columns:repeat(2,1fr);border-top:0}
+  .pipe li{border-top:2px solid var(--ink);margin-right:.75rem;margin-bottom:1.25rem}
+  .job,dl.skills,.projs,.edu{grid-template-columns:1fr}
+  .job{gap:.25rem}
+  nav a:first-child{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <b>AM</b>
+    <nav aria-label="Sections"><a href="#experience">Experience</a><a href="#projects">Projects</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <h1>Ayush<br>Mandhotra</h1>
+      <p class="lede">BCA graduate who builds machine learning models and full-stack web apps. Three ML internships, two MERN projects, and a working knowledge of AWS and Docker.</p>
+      <div class="cta">
+        <a class="btn main" href="mailto:mandhotra.ayush12@gmail.com">Email me</a>
+        <a class="btn alt" href="https://github.com/mandhotraayush12">View GitHub</a>
+      </div>
+      <ol class="pipe" aria-label="Machine learning lifecycle I have worked across">
+        <li>Collect<b>Data</b></li>
+        <li>Clean<b>Preprocess</b></li>
+        <li>Shape<b>Features</b></li>
+        <li>Fit<b>Train</b></li>
+        <li>Check<b>Evaluate</b></li>
+        <li>Ship<b>Deploy</b></li>
+      </ol>
+      <p class="pipe-note">The end-to-end lifecycle from my internships, from raw data to deployment.</p>
+    </div>
+
+    <section id="experience">
+      <h2>Experience</h2>
+      <article class="job">
+        <time>Dec 2025 – Jul 2026</time>
+        <div>
+          <h3>Data Science Intern</h3><p class="org">CodeSoft</p>
+          <ul class="pts">
+            <li>Cleaned and preprocessed data, and ran exploratory analysis to find patterns and produce actionable insights.</li>
+            <li>Built and evaluated machine learning models for real-world data science problems.</li>
+            <li>Used feature engineering and model evaluation to improve predictive performance.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <time>Jun 2025 – Nov 2025</time>
+        <div>
+          <h3>AI/ML Specialist Intern</h3><p class="org">GainEdge Pvt. Ltd.</p>
+          <ul class="pts">
+            <li>Worked with an international client team to develop and support AI/ML solutions in a production-oriented environment.</li>
+            <li>Contributed to model development, testing, validation, and deployment workflows.</li>
+            <li>Troubleshot technical issues across teams to make AI/ML solutions more reliable.</li>
+            <li>Gained hands-on exposure to the full machine learning lifecycle.</li>
+          </ul>
+        </div>
+      </article>
+      <article class="job">
+        <time>Dec 2024 – May 2025</time>
+        <div>
+          <h3>Machine Learning Intern</h3><p class="org">AcmeGrade</p>
+          <ul class="pts">
+            <li>Developed and optimized machine learning models in Python, improving performance through feature engineering and algorithm tuning.</li>
+            <li>Built a music recommendation system that gives personalized suggestions.</li>
+            <li>Built a cancer prediction model, covering preprocessing, classification, training, and evaluation.</li>
+          </ul>
+        </div>
+      </article>
+    </section>
+
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projs">
+        <article class="proj">
+          <h3>Chat Application</h3>
+          <ul class="stack"><li>MongoDB</li><li>Express.js</li><li>React</li><li>Node.js</li><li>Socket.IO</li><li>JWT</li></ul>
+          <ul class="pts">
+            <li>Real-time messaging with typing indicators and online status, built on Socket.IO.</li>
+            <li>Secure sign-in and authorization with JWT and bcrypt.</li>
+            <li>RESTful APIs for users, chats, and messages.</li>
+            <li>A simple, menu-driven interface.</li>
+          </ul>
+        </article>
+        <article class="proj">
+          <h3>E-Commerce Website</h3>
+          <ul class="stack"><li>MongoDB</li><li>Express.js</li><li>React</li><li>Node.js</li><li>JWT</li><li>bcrypt.js</li></ul>
+          <ul class="pts">
+            <li>Product browsing, filtering, cart, and order management.</li>
+            <li>RESTful APIs for products, cart, and orders.</li>
+            <li>Responsive storefront interface.</li>
+            <li>Admin dashboard for products, users, and analytics.</li>
+            <li>JWT and bcrypt.js authentication and authorization.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <h2>Skills</h2>
+      <dl class="skills">
+        <dt>Languages</dt><dd>Java, Python, JavaScript, SQL, HTML/CSS, Bash, Shell Scripting</dd>
+        <dt>Frameworks</dt><dd>React.js, Node.js, Express.js, Flask</dd>
+        <dt>Databases</dt><dd>MySQL, MongoDB</dd>
+        <dt>Cloud and DevOps</dt><dd>Docker, CI/CD, AWS (EC2, S3, Lambda, VPC, IAM, CloudWatch, CloudFront, ELB, RDS, DynamoDB)</dd>
+        <dt>Web</dt><dd>WordPress, web hosting, cPanel, DNS management, SSL configuration</dd>
+        <dt>Operating systems</dt><dd>Linux, Windows</dd>
+        <dt>Developer tools</dt><dd>Git, GitHub, VS Code, IntelliJ IDEA, Postman</dd>
+        <dt>Support</dt><dd>Ticketing systems, technical support, email troubleshooting</dd>
+        <dt>Working style</dt><dd>Customer communication, problem solving, troubleshooting, time management</dd>
+      </dl>
+    </section>
+
+    <section id="education">
+      <h2>Education and certifications</h2>
+      <div class="edu">
+        <div>
+          <h3>Bachelor of Computer Application</h3>
+          <p>Delhi Technical Campus, Greater Noida, India</p>
+          <p>Sep 2023 – Jul 2026 · 78.61%</p>
+        </div>
+        <div>
+          <h3>Certifications</h3>
+          <p>AI-ML Internship</p>
+          <p>Data Analytics Job Simulation</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contact">
+    <p>Open to software and machine learning roles. Say hello:</p>
+    <a class="big" href="mailto:mandhotra.ayush12@gmail.com">mandhotra.ayush12@gmail.com</a>
+    <p><a href="https://github.com/mandhotraayush12">github.com/mandhotraayush12</a></p>
+  </footer>
+</div>
+</body>
+</html>
